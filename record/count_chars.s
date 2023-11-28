@@ -2,7 +2,7 @@
 
 .type count_chars, @function
 count_chars:
-	pusl %ebp
+	pushl %ebp
 	movl %esp, %ebp
 
 	movl $0, %ecx
@@ -19,3 +19,4 @@ count_ret:
 	movl %ebp, %esp
 	popl %ebp
 	ret
+
