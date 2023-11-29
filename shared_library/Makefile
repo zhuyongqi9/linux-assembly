@@ -8,6 +8,9 @@ SHARED_LIBRARY := $(patsubst %, lib%.so, $(SHARED_LIBRARY_NAME))
 OBJECT_FILE := $(patsubst %, %.o, $(SHARED_LIBRARY_NAME))
 
 all: test_record
+	@echo "add ld config"
+	cp asm_record.conf /etc/ld.so.conf.d/
+	ldconfig
 
 build_obj: $(OBJECT_FILE) 
 build_so: build_obj $(SHARED_LIBRARY) 
@@ -27,4 +30,3 @@ test_record.o: test_record.s $(BASE)
 
 clean:
 	find . -maxdepth 1 -type f ! -name 'Makefile' ! -name '*.s' -delete
-
