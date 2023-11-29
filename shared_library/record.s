@@ -1,4 +1,4 @@
-.include "linux.s"
+.include "../base_file/linux.s"
 .include "record_def.s"
 
 .section .data

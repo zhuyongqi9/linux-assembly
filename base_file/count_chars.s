@@ -1,9 +1,6 @@
-.section .text
 .global count_chars
-.type count_chars, @function
 
-# arg0: string
-# return: strlen
+.type count_chars, @function
 count_chars:
 	pushl %ebp
 	movl %esp, %ebp
@@ -12,7 +9,7 @@ count_chars:
 	movl 8(%ebp), %ebx
 
 count_chars_loop:
-	cmpb $0, (%ebx, %ecx, 1)
+	cmpl $0, (%ebx, %ecx, 1)
 	je count_ret
 	incl %ecx
 	jmp count_chars_loop
@@ -22,3 +19,4 @@ count_ret:
 	movl %ebp, %esp
 	popl %ebp
 	ret
+

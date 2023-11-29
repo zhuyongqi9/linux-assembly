@@ -1,5 +1,5 @@
-.include "linux.s"
-.include "count_chars.s"
+.include "../base_file/linux.s"
+.include "../base_file/count_chars.s"
 .include "record_def.s"
 
 .section .data
@@ -61,6 +61,8 @@ test_read_record:
 	call count_chars 
 	addl $4, %esp
 	movl %eax, %edx
+	movb $'\n', buf(, %edx, 1)
+	incl %edx
 	movl $SYS_WRITE, %eax
 	movl $STDOUT, %ebx
 	movl $buf, %ecx
