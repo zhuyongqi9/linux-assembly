@@ -9,7 +9,7 @@ count_chars:
 	movl 8(%ebp), %ebx
 
 count_chars_loop:
-	cmpl $0, (%ebx, %ecx, 1)
+	cmpb $0, (%ebx, %ecx, 1)
 	je count_ret
 	incl %ecx
 	jmp count_chars_loop
