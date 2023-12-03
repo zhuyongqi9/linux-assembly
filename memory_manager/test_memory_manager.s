@@ -16,7 +16,7 @@ _start:
 	subl $12, %esp
 
 	pushl $20
-	call allocate
+	call malloc
 	movl %eax, BUF(%ebp)
 	addl $4, %esp
 
@@ -46,11 +46,11 @@ _start:
 	addl $4, %esp
 
 	pushl $30
-	call allocate
+	call malloc
 	addl $4, %esp
 
 	pushl $20
-	call allocate
+	call malloc
 	addl $4, %esp
 
 	addl $4, %esp

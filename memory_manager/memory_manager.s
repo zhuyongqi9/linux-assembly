@@ -3,6 +3,7 @@
 heap_begin: .long 0
 current_break: .long 0
 flag: .long 0
+start_msg: .ascii "kirin: starts to malloc\n\0"
 
 .equ HEADER_SIZE, 8
 .equ HEADER_AVAIL_OFFSET, 0
@@ -29,12 +30,18 @@ allocate_init:
 	popl %ebp
 	ret
 
-.global allocate
-.type allocate, @function
-allocate:
+.global malloc 
+.type malloc, @function
+malloc:
 	pushl %ebp
 	movl %esp, %ebp
 
+	movl $SYS_WRITE, %eax
+	movl $STDOUT, %ebx
+	movl $start_msg, %ecx
+	movl $25, %edx
+	int $LINUX_SYSCALL
+	
 	cmpl $1, flag
 	je allocate_begin
 	call allocate_init

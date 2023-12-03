@@ -21,6 +21,6 @@ memory_manager.o: memory_manager.s
 	as --32 -g -o memory_manager.o memory_manager.s
 
 clean:
-	find . -maxdepth 1 -type f ! -name 'Makefile' ! -name '*.s' ! -name '*.conf' -delete 
+	find . -maxdepth 1 -type f ! -name 'Makefile' ! -name '*.s' ! -name '*.conf' ! -name '*.c' -delete 
 
 
