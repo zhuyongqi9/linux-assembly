@@ -1,12 +1,12 @@
 # Makefile
 
-FILENAME ?= default
+FILE ?= default
 
-$(FILENAME): $(FILENAME).o
-	ld -m elf_i386 -g -o $(FILENAME) $(FILENAME).o
+$(FILE): $(FILE).o
+	ld -m elf_i386 -g -o $(FILE) $(FILE).o
 
-$(FILENAME).o: $(FILENAME).s
-	as -g --32 -o $(FILENAME).o $(FILENAME).s
+$(FILE).o: $(FILE).s
+	as -g --32 -o $(FILE).o $(FILE).s
 
 clean:
 	find . -maxdepth 1 -type f ! -name 'Makefile' ! -name '*.s' -delete
