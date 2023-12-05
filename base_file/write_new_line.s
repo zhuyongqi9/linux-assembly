@@ -1,4 +1,4 @@
-.include "linux.s"
+.include "base_file/linux.s"
 .global write_newline 
 .type write_newline, @function
 
