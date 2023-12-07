@@ -49,7 +49,7 @@ read_record:
 	int $LINUX_SYSCALL
 	pushl $STDOUT
 	call write_newline	
-    addl $4, %esp
+	addl $4, %esp
 
 	movl %ebp, %esp	
 	popl %ebp
